@@ -6,8 +6,8 @@ import com.example.postlist.utils.Resource
 
 interface Repository {
 
-    suspend fun getPosts(): Resource<PostList>
+    suspend fun getPostList(): Resource<PostList>
 
-    suspend fun getComments(id: String): Resource<CommentList>
+    suspend fun getCommentList(id: String): Resource<CommentList>
 
 }

@@ -10,9 +10,9 @@ import javax.inject.Inject
 class PostRepository @Inject constructor(
     private val postApiInterface: PostApiInterface
 ) : Repository {
-    override suspend fun getPosts(): Resource<PostList> {
+    override suspend fun getPostList(): Resource<PostList> {
         return try {
-            val response = postApiInterface.getPosts()
+            val response = postApiInterface.getPostList()
             if (response.isSuccessful) {
                 response.body()?.let {
                     return@let Resource.success(it)
@@ -25,9 +25,9 @@ class PostRepository @Inject constructor(
         }
     }
 
-    override suspend fun getComments(id: String): Resource<CommentList> {
+    override suspend fun getCommentList(id: String): Resource<CommentList> {
         return try {
-            val response = postApiInterface.getComments(id)
+            val response = postApiInterface.getCommentList(id)
             if (response.isSuccessful) {
                 response.body()?.let {
                     return@let Resource.success(it)

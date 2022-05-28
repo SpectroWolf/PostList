@@ -9,9 +9,9 @@ import retrofit2.http.Path
 interface PostApiInterface {
 
     @GET("posts")
-    suspend fun getPosts(): Response<PostList>
+    suspend fun getPostList(): Response<PostList>
 
     @GET("posts/{post_id}/comments")
-    suspend fun getComments(@Path("post_id") id: String) : Response<CommentList>
+    suspend fun getCommentList(@Path("post_id") id: String) : Response<CommentList>
 
 }
