@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.postlist.adapters.PostAdapter
@@ -46,6 +47,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun initRecyclerView() {
         binding.rvPostList.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
+        binding.rvPostList.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
         postAdapter = PostAdapter(this)
         binding.rvPostList.adapter = postAdapter
     }
