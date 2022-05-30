@@ -1,6 +1,7 @@
 package com.example.postlist.adapters
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -21,6 +22,12 @@ class PostAdapter(private val context: Context) :
         fun bindPostList(data: Post, context: Context) {
             binding.tvPostItemTitle.text = data.title
             binding.tvPostItemBody.text = data.body
+      /*      binding.cardView.setOnClickListener {
+                val intent = Intent(context, )
+                intent.inputExtra("id", data.id)
+                context.startActivity(intent)
+            }*/
+
         }
 
     }

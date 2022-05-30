@@ -29,6 +29,7 @@ class MainActivity : AppCompatActivity() {
         createPostList()
     }
 
+
     private fun createPostList() {
         viewModel.getPostList()
         viewModel.postList.observe(this) { response ->
