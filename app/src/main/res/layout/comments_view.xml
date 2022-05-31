@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@color/white_grey"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:id="@+id/teste_dialog">
 
-    <androidx.appcompat.widget.Toolbar
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/black_soft">
+        android:layout_height="wrap_content"
+        android:background="@color/black_soft"
+        android:orientation="horizontal">
 
         <TextView
             android:id="@+id/tv_comments_title"
@@ -16,12 +18,13 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
+            android:maxLines="3"
             android:text="O que a galera comentou sobre o post ehauhueahuheauhueahuheauhea"
             android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold" />
 
-    </androidx.appcompat.widget.Toolbar>
+    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_comments"
