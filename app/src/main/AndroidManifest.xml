@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.postlist">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".PostListApplication"
         android:allowBackup="true"
