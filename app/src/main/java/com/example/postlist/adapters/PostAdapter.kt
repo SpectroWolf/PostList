@@ -1,14 +1,16 @@
 package com.example.postlist.adapters
 
 import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.postlist.databinding.PostItemBinding
 import com.example.postlist.models.Post
+import com.example.postlist.ui.CommentsView
 
-class PostAdapter(private val context: Context) :
+
+class PostAdapter(private val context: Context, private val fragmentManager: FragmentManager) :
     RecyclerView.Adapter<PostAdapter.PostViewHolder>() {
 
     var postList = ArrayList<Post>()
@@ -17,19 +19,11 @@ class PostAdapter(private val context: Context) :
         this.postList = data
     }
 
-
-    class PostViewHolder(private val binding: PostItemBinding) : RecyclerView.ViewHolder(binding.root) {
+    class PostViewHolder(val binding: PostItemBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bindPostList(data: Post, context: Context) {
             binding.tvPostItemTitle.text = data.title
             binding.tvPostItemBody.text = data.body
-      /*      binding.cardView.setOnClickListener {
-                val intent = Intent(context, )
-                intent.inputExtra("id", data.id)
-                context.startActivity(intent)
-            }*/
-
         }
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostViewHolder {
@@ -39,6 +33,13 @@ class PostAdapter(private val context: Context) :
 
     override fun onBindViewHolder(holder: PostViewHolder, position: Int) {
         holder.bindPostList(postList[position], context)
+        holder.binding.cardViewPost.setOnClickListener {
+            val dialog = CommentsView(
+                postList[holder.adapterPosition].id.toString(),
+                postList[holder.adapterPosition].title,
+                context)
+            dialog.show(fragmentManager, "teste")
+        }
     }
 
     override fun getItemCount(): Int = postList.size
