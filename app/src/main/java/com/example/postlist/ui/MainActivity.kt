@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private val viewModel: MainViewModel by viewModels()
     lateinit var postAdapter: PostAdapter
+    private val fragmentManager = supportFragmentManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,7 +50,7 @@ class MainActivity : AppCompatActivity() {
     private fun initRecyclerView() {
         binding.rvPostList.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
         binding.rvPostList.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
-        postAdapter = PostAdapter(this)
+        postAdapter = PostAdapter(this, fragmentManager)
         binding.rvPostList.adapter = postAdapter
     }
 }
