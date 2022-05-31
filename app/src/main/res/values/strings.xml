@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Post List</string>
     <string name="postagens_recentes">Postagens Recentes</string>
+    <string name="comment_title">O que a galera comentou sobre o post </string>
 </resources>

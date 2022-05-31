@@ -13,6 +13,7 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.postlist.R
 import com.example.postlist.adapters.CommentAdapter
 import com.example.postlist.databinding.CommentsViewBinding
 import com.example.postlist.models.Comment
@@ -36,7 +37,7 @@ class CommentsView(
         builder.setView(binding.root)
 
         val dialog = builder.create()
-        binding.tvCommentsTitle.text = "O que a galera comentou sobre o post " + title
+        binding.tvCommentsTitle.text = getString(R.string.comment_title) + " \"$title\""
 
         initRecycler()
         createComments()
