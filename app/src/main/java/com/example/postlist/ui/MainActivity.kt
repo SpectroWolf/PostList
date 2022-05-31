@@ -49,7 +49,12 @@ class MainActivity : AppCompatActivity() {
 
     private fun initRecyclerView() {
         binding.rvPostList.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
-        binding.rvPostList.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
+        binding.rvPostList.addItemDecoration(
+            DividerItemDecoration(
+                this,
+                DividerItemDecoration.VERTICAL
+            )
+        )
         postAdapter = PostAdapter(this, fragmentManager)
         binding.rvPostList.adapter = postAdapter
     }
