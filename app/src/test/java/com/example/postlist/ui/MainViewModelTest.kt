@@ -64,7 +64,6 @@ class MainViewModelTest {
     private fun mockCommentList(): CommentList {
 
         val commentList = CommentList()
-        val temporaryList = CommentList()
 
         val comment1 = Comment(
             "Imagine an incredible text here",
